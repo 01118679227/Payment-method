@@ -7,6 +7,7 @@ class UI extends StatefulWidget {
 }
 
 class UIState extends State<UI> {
+  bool isChange = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -398,7 +399,7 @@ class UIState extends State<UI> {
                                             width: MediaQuery.of(context).size.width,
                                                 height: 40.0,
                                               decoration: BoxDecoration(
-                                              color: Colors.blue.shade900,
+                                              color: isChange == true ? Colors.red : Colors.blue.shade900,
                                               borderRadius: BorderRadius.circular(20.0),
                                               ),
                                             child: Center(
@@ -409,7 +410,11 @@ class UIState extends State<UI> {
                                               ),
                                             ),
                                           ),
-                                          onTap: (){},
+                                          onTap: (){
+                                            setState(() {
+                                              isChange = true;
+                                            });
+                                          },
                                           ),
                                       ),
                                         SizedBox(height: 30.0,),
